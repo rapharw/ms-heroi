@@ -1,0 +1,33 @@
+server:
+  port: 8086
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+spring:
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        type: trace
+
+  datasource-sqlserver:
+    url: jdbc:h2:mem:database-sqlserver;MODE=MSSQLServer;INIT=RUNSCRIPT FROM 'classpath:sqlserver_schema.sql';
+    username: ey-user
+    password: ey-password
+    driver-class-name: org.h2.Driver
