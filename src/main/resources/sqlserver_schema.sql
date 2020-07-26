@@ -65,3 +65,4 @@ INSERT INTO UNIVERSOS (descricao) values ('Outros');
 
 -- CARGA TABLE PODERES
 INSERT INTO PODERES (descricao) values ('Palácio da Memória');
+INSERT INTO PODERES (descricao) values ('Super velocidade');

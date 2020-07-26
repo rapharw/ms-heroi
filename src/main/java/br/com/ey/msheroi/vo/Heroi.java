@@ -37,7 +37,7 @@ public class Heroi implements Serializable {
     @Enumerated(EnumType.STRING)
     private TipoSituacaoEnum situacao;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinTable( name = "poderes_herois",
                 joinColumns = @JoinColumn(name="id_heroi", referencedColumnName = "id"),
                 inverseJoinColumns = @JoinColumn(name="id_poder", referencedColumnName = "id")
@@ -60,6 +60,13 @@ public class Heroi implements Serializable {
         if(poderes == null)
             poderes = new HashSet<>();
         poderes.add(poder);
+        return this;
+    }
+
+    public Heroi removeUmPoder(Poder poder){
+        if(poderes != null){
+            poderes.removeIf(p -> p.getId() == poder.getId());
+        }
         return this;
     }
 

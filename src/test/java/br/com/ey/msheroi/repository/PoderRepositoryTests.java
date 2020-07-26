@@ -1,4 +1,4 @@
-package br.com.ey.msheroi;
+package br.com.ey.msheroi.repository;
 
 import br.com.ey.msheroi.repository.PoderRepository;
 import br.com.ey.msheroi.vo.Poder;
@@ -11,13 +11,13 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
+import static br.com.ey.msheroi.utils.ConstantesTests.DESCRICAO_PODER_PALACIO_DA_MEMORIA_EXPECTED;
+import static br.com.ey.msheroi.utils.ConstantesTests.ID_PODER_PALACIO_DA_MEMORIA;
+
 @SpringBootTest
 @ActiveProfiles("dsv")
 @Slf4j
 public class PoderRepositoryTests {
-
-	public static final Integer ID_PODER_PALACIO_DA_MEMORIA = 1;
-	public static final String DESCRICAO_PODER_PALACIO_DA_MEMORIA_EXPECTED = "Palácio da Memória";
 
 	@Autowired
 	private PoderRepository poderRepository;

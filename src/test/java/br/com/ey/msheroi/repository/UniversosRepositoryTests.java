@@ -1,4 +1,4 @@
-package br.com.ey.msheroi;
+package br.com.ey.msheroi.repository;
 
 import br.com.ey.msheroi.enums.TipoSituacaoEnum;
 import br.com.ey.msheroi.enums.TipoUniversoEnum;
@@ -16,13 +16,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import static br.com.ey.msheroi.utils.ConstantesTests.DESCRICAO_EY_COMICS_EXPECTED;
+import static br.com.ey.msheroi.utils.ConstantesTests.ID_EY_COMICS;
+
 @SpringBootTest
 @ActiveProfiles("dsv")
 @Slf4j
 public class UniversosRepositoryTests {
-
-	private static final Integer ID_EY_COMICS = TipoUniversoEnum.EY_COMICS.getId();
-	private static final String DESCRICAO_EY_COMICS_EXPECTED = "EY Comics";
 
 	@Autowired
 	private UniversoRepository universoRepository;

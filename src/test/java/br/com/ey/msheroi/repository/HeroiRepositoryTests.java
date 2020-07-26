@@ -1,8 +1,7 @@
-package br.com.ey.msheroi;
+package br.com.ey.msheroi.repository;
 
 import br.com.ey.msheroi.enums.TipoSituacaoEnum;
 import br.com.ey.msheroi.enums.TipoUniversoEnum;
-import br.com.ey.msheroi.repository.HeroiRepository;
 import br.com.ey.msheroi.vo.Heroi;
 import br.com.ey.msheroi.vo.Poder;
 import br.com.ey.msheroi.vo.Universo;
@@ -12,12 +11,11 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-import static br.com.ey.msheroi.PoderRepositoryTests.ID_PODER_PALACIO_DA_MEMORIA;
+import static br.com.ey.msheroi.utils.ConstantesTests.*;
 
 @SpringBootTest
 @ActiveProfiles("dsv")
@@ -25,28 +23,8 @@ import static br.com.ey.msheroi.PoderRepositoryTests.ID_PODER_PALACIO_DA_MEMORIA
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class HeroiRepositoryTests {
 
-	private static final String NOME_HEROI = "Sherlock H.";
-	private static final Integer ID_UNIVERSO_HEROI = TipoUniversoEnum.EY_COMICS.getId();
-	private static final Long ID_HEROI_CRIADO = 1L;
-
 	@Autowired
 	private HeroiRepository heroiRepository;
-
-	private static Heroi newHeroInstance(int i){
-
-		//Cria uma instancia de um heroi
-		Heroi heroi = Heroi.builder()
-				.nome("Herói de num - " + i)
-				.situacao(TipoSituacaoEnum.ATIVO)
-				.universo(Universo.builder().id(ID_UNIVERSO_HEROI).build())
-				.build();
-
-		//Adiciona um poder p/ o Heroi
-		heroi.adicionaUmPoder(Poder.builder()
-				.id(ID_PODER_PALACIO_DA_MEMORIA)
-				.build());
-		return heroi;
-	}
 
 	private static Heroi findHeroRepository(HeroiRepository heroiRepository, Long idHeroi){
 		Optional<Heroi> byId = heroiRepository.findById(idHeroi);
@@ -69,7 +47,7 @@ public class HeroiRepositoryTests {
 		Heroi heroi = Heroi.builder()
 								.nome(NOME_HEROI)
 								.situacao(TipoSituacaoEnum.ATIVO)
-								.universo(Universo.builder().id(ID_UNIVERSO_HEROI).build())
+								.universo(Universo.builder().id(ID_EY_COMICS).build())
 							.build();
 
 		//Adiciona um poder p/ o Heroi
