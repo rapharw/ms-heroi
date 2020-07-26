@@ -69,7 +69,7 @@ public class HeroiServiceTests {
     @Order(2)
     public void inativandoUmHeroi(){
         Long idDoHeroiASerInativado = 1L;
-        Heroi heroi = heroiService.inativaHeroi(idDoHeroiASerInativado);
+        Heroi heroi = heroiService.atualizaSituacaoHeroi(idDoHeroiASerInativado, TipoSituacaoEnum.INATIVO);
         log.info("... Assertions Inativando o Heroi ...");
         Assertions.assertTrue(!heroi.isAtivo());
     }
@@ -78,7 +78,7 @@ public class HeroiServiceTests {
     @Order(3)
     public void ativandoUmHeroi(){
         Long idDoHeroiASerAtivado = 1L;
-        Heroi heroi = heroiService.ativaHeroi(idDoHeroiASerAtivado);
+        Heroi heroi = heroiService.atualizaSituacaoHeroi(idDoHeroiASerAtivado, TipoSituacaoEnum.ATIVO);
         log.info("... Assertions Ativando o Heroi ...");
         Assertions.assertTrue(heroi.isAtivo());
     }

@@ -7,6 +7,8 @@ import br.com.ey.msheroi.vo.Heroi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -66,47 +68,46 @@ public class HeroiService {
         }
     }
 
-
-    public Heroi ativaHeroi(Long id){
-        log.info("... Ativando o Heroi de ID {} ...", id);
-        try {
-            return atualizaSituacaoHeroi(id, TipoSituacaoEnum.ATIVO);
-        }
-        catch (Exception e){
-            log.error("ativaHeroi: {}", id);
-            throw new ErroAoAtualizarSituacaoHeroiException(TipoSituacaoEnum.ATIVO);
-        }
-    }
-
-    public Heroi inativaHeroi(Long id){
-        log.info("... Inativando o Heroi de ID {} ...", id);
-        try {
-            return atualizaSituacaoHeroi(id, TipoSituacaoEnum.INATIVO);
-        }
-        catch (Exception e){
-            log.error("ativaHeroi: {}", id);
-            throw new ErroAoAtualizarSituacaoHeroiException(TipoSituacaoEnum.INATIVO);
-        }
-    }
-
-    private Heroi atualizaSituacaoHeroi(Long id, TipoSituacaoEnum tipoSituacaoEnum){
-        Heroi heroi = this.buscaHeroiPorId(id);
-        heroi.setSituacao(tipoSituacaoEnum);
+    private Heroi ativaHeroi(Heroi heroi){
+        log.info("... Ativando o Heroi {} ...", heroi);
+        heroi.setSituacao(TipoSituacaoEnum.ATIVO);
         return heroiRepository.save(heroi);
+    }
+
+    private Heroi inativaHeroi(Heroi heroi){
+        log.info("... Inativando o Heroi {} ...", heroi);
+        heroi.setSituacao(TipoSituacaoEnum.INATIVO);
+        return heroiRepository.save(heroi);
+    }
+
+    public Heroi atualizaSituacaoHeroi(Long id, TipoSituacaoEnum tipoSituacaoEnum){
+
+        Heroi heroi = this.buscaHeroiPorId(id);
+
+        try{
+            if(TipoSituacaoEnum.ATIVO == tipoSituacaoEnum) {
+                ativaHeroi(heroi);
+            }
+            else if(TipoSituacaoEnum.INATIVO == tipoSituacaoEnum) {
+                inativaHeroi(heroi);
+            }
+        }
+        catch (Exception e){
+            log.error("atualizaSituacaoHeroi: {}", heroi);
+            throw new ErroAoAtualizarSituacaoHeroiException(tipoSituacaoEnum);
+        }
+
+        throw new SituacaoInexistenteAoAtualizarHeroiException();
     }
 
 
     public List<Heroi> buscaHerois(TipoSituacaoEnum tipoSituacaoEnum){
-        switch (tipoSituacaoEnum){
-            case ATIVO:
-                return buscaHeroisPorSituacao(TipoSituacaoEnum.ATIVO);
-            case INATIVO:
-                return buscaHeroisPorSituacao(TipoSituacaoEnum.INATIVO);
-            case TODOS:
-                return buscaTodosOsHerois();
-            default:
-                return Collections.emptyList();
-        }
+        if(TipoSituacaoEnum.ATIVO == tipoSituacaoEnum)
+            return buscaHeroisPorSituacao(TipoSituacaoEnum.ATIVO);
+        else if(TipoSituacaoEnum.INATIVO == tipoSituacaoEnum)
+            return buscaHeroisPorSituacao(TipoSituacaoEnum.INATIVO);
+        else
+            return buscaTodosOsHerois();
     }
 
 
@@ -116,8 +117,8 @@ public class HeroiService {
             return heroiRepository.findAllBySituacao(tipoSituacaoEnum);
         }
         catch (Exception e){
-            log.error("buscaHeroisPorSituacao", e);
-            throw new ErroAoBuscarHeroisException(tipoSituacaoEnum);
+            log.error("buscaHeroisPorSituacao {}", tipoSituacaoEnum, e);
+            throw new ErroAoBuscarHeroisException();
         }
     }
     private List<Heroi> buscaTodosOsHerois(){
@@ -127,7 +128,7 @@ public class HeroiService {
         }
         catch (Exception e){
             log.error("buscaTodosOsHerois", e);
-            throw new ErroAoBuscarHeroisException(TipoSituacaoEnum.TODOS);
+            throw new ErroAoBuscarHeroisException();
         }
     }
 }
