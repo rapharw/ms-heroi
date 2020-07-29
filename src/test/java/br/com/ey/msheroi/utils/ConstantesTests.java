@@ -27,6 +27,20 @@ public class ConstantesTests {
     public static final String      NOME_HEROI = "Sherlock H.";
     public static final Integer     ID_HEROI_INEXISTENTE = 999;
 
+
+
+    //USUARIO
+    public static final Long        ID_USUARIO_RAPHAEL = 1L;
+    public static final String      NOME_USUARIO_RAPHAEL = "Raphael";
+    public static final String      LOGIN_USUARIO_RAPHAEL = "r0001";
+
+    public static final Long        ID_USUARIO_RENATO = 2L;
+    public static final String      NOME_USUARIO_RENATO = "r0002";
+
+    public static final Long        ID_USUARIO_WANDERLEY = 3L;
+    public static final String      NOME_USUARIO_WANDERLEY = "r0003";
+
+
     public static Heroi newHeroInstance(int i){
 
         //Cria uma instancia de um heroi

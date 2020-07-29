@@ -1,10 +1,14 @@
 package br.com.ey.msheroi.controllers;
 
+import br.com.ey.msheroi.config.security.vo.UserPrincipal;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 public class CommonController {
+
+    public static final String ROTA_API = "/api";
 
     public ResponseEntity ok(){
         return ok(null, null);
@@ -37,4 +41,9 @@ public class CommonController {
         return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
     }
 
+    public UserPrincipal userPrincipal(){
+        return (UserPrincipal) SecurityContextHolder.getContext()
+                                                    .getAuthentication()
+                                                    .getPrincipal();
+    }
 }

@@ -1,3 +1,6 @@
+allowed:
+  origin: ${URL_API}
+
 logging:
   level:
     org:

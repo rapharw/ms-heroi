@@ -13,7 +13,7 @@ import javax.websocket.server.PathParam;
 @RequestMapping(HeroiController.ROTA_HEROIS)
 public class HeroiController extends CommonController{
 
-    protected static final String ROTA_HEROIS = "/herois";
+    protected static final String ROTA_HEROIS = ROTA_API + "/herois";
     private static final String CADASTRO_OK = "Heroi cadastrado com sucesso";
     private static final String ATUALIZACAO_OK = "Heroi atualizado com sucesso";
 

@@ -1,6 +1,9 @@
 server:
   port: 8086
 
+allowed:
+  origin: http://localhost:8080
+
 logging:
   level:
     org:
