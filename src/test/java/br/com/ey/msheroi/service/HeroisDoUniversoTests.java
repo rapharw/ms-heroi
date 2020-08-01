@@ -1,5 +1,6 @@
 package br.com.ey.msheroi.service;
 
+import br.com.ey.msheroi.facade.HeroiFacade;
 import br.com.ey.msheroi.vo.Heroi;
 import br.com.ey.msheroi.vo.Universo;
 import com.google.gson.GsonBuilder;
@@ -24,7 +25,7 @@ public class HeroisDoUniversoTests {
     private HeroisDoUniversoService heroisDoUniversoService;
 
     @Autowired
-    private HeroiService heroiService;
+    private HeroiFacade heroiFacade;
 
     @Test
     @Order(1)
@@ -34,7 +35,7 @@ public class HeroisDoUniversoTests {
         for(int i = 1; i <= heroisASeremCriados; i++){
             Heroi heroi = newHeroInstance(i);
 
-            Heroi created = heroiService.criaHeroi(heroi);
+            Heroi created = heroiFacade.criaHeroi(heroi);
             log.info("Heroi {} salvo: {}", i, created.toJson(new GsonBuilder()));
 
             heroi = null;
