@@ -1,6 +1,6 @@
 package br.com.ey.msheroi.utils;
 
-import br.com.ey.msheroi.enums.TipoSituacaoEnum;
+import br.com.ey.msheroi.enums.Situacao;
 import br.com.ey.msheroi.enums.TipoUniversoEnum;
 import br.com.ey.msheroi.vo.Heroi;
 import br.com.ey.msheroi.vo.Poder;
@@ -25,6 +25,7 @@ public class ConstantesTests {
     //HEROI
     public static final Long        ID_HEROI_CRIADO = 1L;
     public static final String      NOME_HEROI = "Sherlock H.";
+    public static final String      NOME_HEROI2_CACHED = "Arya Stark";
     public static final Integer     ID_HEROI_INEXISTENTE = 999;
 
 
@@ -46,7 +47,7 @@ public class ConstantesTests {
         //Cria uma instancia de um heroi
         Heroi heroi = Heroi.builder()
                 .nome("Herói de num - " + i)
-                .situacao(TipoSituacaoEnum.ATIVO)
+                .situacao(Situacao.ATIVO)
                 .universo(Universo.builder().id(ID_EY_COMICS).build())
                 .build();
 

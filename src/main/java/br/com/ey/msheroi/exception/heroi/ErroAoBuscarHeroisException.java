@@ -1,4 +1,6 @@
-package br.com.ey.msheroi.exception;
+package br.com.ey.msheroi.exception.heroi;
+
+import br.com.ey.msheroi.exception.DefaultErrorException;
 
 public class ErroAoBuscarHeroisException extends DefaultErrorException {
 

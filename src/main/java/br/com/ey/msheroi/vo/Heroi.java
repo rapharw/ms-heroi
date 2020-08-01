@@ -1,10 +1,10 @@
 package br.com.ey.msheroi.vo;
 
-import br.com.ey.msheroi.enums.TipoSituacaoEnum;
+import br.com.ey.msheroi.enums.Situacao;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -35,7 +35,7 @@ public class Heroi implements Serializable {
 
     @Column(name = "situacao", nullable = false)
     @Enumerated(EnumType.STRING)
-    private TipoSituacaoEnum situacao;
+    private Situacao situacao;
 
     @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinTable( name = "poderes_herois",
@@ -45,15 +45,16 @@ public class Heroi implements Serializable {
     private Set<Poder> poderes;
 
     @Builder
-    public Heroi(String nome, Universo universo, TipoSituacaoEnum situacao){
+    public Heroi(String nome, Universo universo, Situacao situacao){
         this.nome = nome;
         this.universo = universo;
         this.situacao = situacao;
     }
 
     @Transient
+    @JsonIgnore
     public boolean isAtivo(){
-        return this.situacao != null && TipoSituacaoEnum.ATIVO == situacao;
+        return this.situacao != null && Situacao.ATIVO == situacao;
     }
 
     public Heroi adicionaUmPoder(Poder poder){
@@ -65,7 +66,7 @@ public class Heroi implements Serializable {
 
     public Heroi removeUmPoder(Poder poder){
         if(poderes != null){
-            poderes.removeIf(p -> p.getId() == poder.getId());
+            poderes.removeIf(p -> p.getId().equals(poder.getId()));
         }
         return this;
     }

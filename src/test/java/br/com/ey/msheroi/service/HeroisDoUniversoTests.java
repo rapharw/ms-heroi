@@ -48,6 +48,6 @@ public class HeroisDoUniversoTests {
         log.info("... Herois Do Universo EY_COMICS ... {}", herois);
 
         log.info("... Assertions Buscando Herois do Universo ...");
-        Assertions.assertTrue(herois.size() == heroisASeremCriados);
+        Assertions.assertTrue(herois.size() >= heroisASeremCriados);
     }
 }

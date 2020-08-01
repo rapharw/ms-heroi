@@ -1,6 +1,8 @@
-package br.com.ey.msheroi.exception;
+package br.com.ey.msheroi.exception.heroi;
 
-public class SituacaoInexistenteAoAtualizarHeroiException extends DefaultErrorException{
+import br.com.ey.msheroi.exception.DefaultErrorException;
+
+public class SituacaoInexistenteAoAtualizarHeroiException extends DefaultErrorException {
 
     private static final String MESSAGE = "Nao foi possível atualizar a situacao do heroi. A situacao informada e invalido";
 

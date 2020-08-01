@@ -1,5 +1,6 @@
 package br.com.ey.msheroi.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,5 +25,6 @@ public class Universo implements Serializable {
 
     @OneToMany(mappedBy = "universo")
     @Transient
+    @JsonIgnore
     private Set<Heroi> herois;
 }

@@ -1,6 +1,10 @@
 package br.com.ey.msheroi.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -23,5 +27,6 @@ public class Poder implements Serializable {
 
     @ManyToMany(mappedBy="poderes")
     @Transient
+    @JsonIgnore
     private Set<Heroi> herois;
 }

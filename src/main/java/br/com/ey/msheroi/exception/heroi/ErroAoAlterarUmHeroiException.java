@@ -1,6 +1,8 @@
-package br.com.ey.msheroi.exception;
+package br.com.ey.msheroi.exception.heroi;
 
-public class ErroAoAlterarUmHeroiException extends DefaultErrorException{
+import br.com.ey.msheroi.exception.DefaultErrorException;
+
+public class ErroAoAlterarUmHeroiException extends DefaultErrorException {
 
     private static final String MESSAGE = "Não foi possível alterar o heroi";
 

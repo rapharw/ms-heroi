@@ -1,4 +1,6 @@
-package br.com.ey.msheroi.exception;
+package br.com.ey.msheroi.exception.autenticacao;
+
+import br.com.ey.msheroi.exception.DefaultErrorException;
 
 public class UsuarioNaoAutenticadoException extends DefaultErrorException {
 

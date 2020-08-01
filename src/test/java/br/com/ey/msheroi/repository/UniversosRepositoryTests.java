@@ -1,9 +1,5 @@
 package br.com.ey.msheroi.repository;
 
-import br.com.ey.msheroi.enums.TipoSituacaoEnum;
-import br.com.ey.msheroi.enums.TipoUniversoEnum;
-import br.com.ey.msheroi.repository.UniversoRepository;
-import br.com.ey.msheroi.vo.Heroi;
 import br.com.ey.msheroi.vo.Universo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -12,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 import static br.com.ey.msheroi.utils.ConstantesTests.DESCRICAO_EY_COMICS_EXPECTED;

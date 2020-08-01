@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class CommonController {
 
     public static final String ROTA_API = "/api";
+    public static final String ROTA_ADMIN = "/admin";
 
     public ResponseEntity ok(){
         return ok(null, null);

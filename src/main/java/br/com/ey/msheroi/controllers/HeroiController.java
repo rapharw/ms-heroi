@@ -1,13 +1,14 @@
 package br.com.ey.msheroi.controllers;
 
-import br.com.ey.msheroi.enums.TipoSituacaoEnum;
-import br.com.ey.msheroi.service.HeroiService;
+import br.com.ey.msheroi.enums.Situacao;
+import br.com.ey.msheroi.facade.HeroiFacade;
 import br.com.ey.msheroi.vo.Heroi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import java.util.List;
 
 @RestController
 @RequestMapping(HeroiController.ROTA_HEROIS)
@@ -18,25 +19,25 @@ public class HeroiController extends CommonController{
     private static final String ATUALIZACAO_OK = "Heroi atualizado com sucesso";
 
     @Autowired
-    protected HeroiService heroiService;
+    protected HeroiFacade heroiFacade;
 
     @PostMapping
-    public ResponseEntity cadastraHeroi(@RequestBody Heroi heroi) {
-        return ok(heroiService.criaHeroi(heroi).getId(), CADASTRO_OK);
+    public ResponseEntity<Long> cadastraHeroi(@RequestBody Heroi heroi) {
+        return ok(heroiFacade.criaHeroi(heroi).getId(), CADASTRO_OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity atualizaHeroi(@PathVariable(value = "id") Long id, @RequestBody Heroi heroi){
-        return ok(heroiService.alteraHeroi(id, heroi).getId(), ATUALIZACAO_OK);
+    public ResponseEntity<Long> atualizaHeroi(@PathVariable(value = "id") Long id, @RequestBody Heroi heroi){
+        return ok(heroiFacade.alteraHeroi(id, heroi).getId(), ATUALIZACAO_OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity buscaHeroi(@PathVariable(value = "id") Long id){
-        return ok(heroiService.buscaHeroiPorId(id));
+    public ResponseEntity<Heroi> buscaHeroi(@PathVariable(value = "id") Long id){
+        return ok(heroiFacade.buscaHeroiPorId(id));
     }
 
     @GetMapping
-    public ResponseEntity listaHerois(@PathParam(value = "situacao") TipoSituacaoEnum situacao){
-        return ok(heroiService.buscaHerois(situacao));
+    public ResponseEntity<List<Heroi>> listaHerois(@PathParam(value = "situacao") Situacao situacao){
+        return ok(heroiFacade.buscaHerois(situacao));
     }
 }
