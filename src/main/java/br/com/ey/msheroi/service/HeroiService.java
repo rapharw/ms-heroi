@@ -22,26 +22,26 @@ public class HeroiService {
     @Autowired
     private HeroiRepository heroiRepository;
 
-    @CacheEvict(cacheNames = {CACHE_HEROI, CACHE_COLLECTION_HEROIS}, allEntries = true)
+    @CacheEvict(cacheNames = {CACHE_HEROIS}, allEntries = true)
     @Transactional
     public Heroi saveOrUpdate(Heroi heroi){
         return heroiRepository.saveAndFlush(heroi);
     }
 
-    @Cacheable(cacheNames = CACHE_HEROI, key = CACHE_ID, unless = CACHE_ONLY_IF_RESULTS)
+    @Cacheable(cacheNames = CACHE_HEROIS, key = CACHE_ID)
     @Transactional(readOnly = true)
     public Heroi findById(Long id) {
         Optional<Heroi> byId = heroiRepository.findById(id);
         return byId.orElseThrow(HeroiNaoEncontradoException::new);
     }
 
-    @Cacheable(cacheNames = CACHE_COLLECTION_HEROIS, key = CACHE_SITUACAO, unless = CACHE_ONLY_IF_RESULTS)
+    @Cacheable(cacheNames = CACHE_HEROIS, key = CACHE_SITUACAO)
     @Transactional(readOnly = true)
     public List<Heroi> findAllBySituacao(Situacao situacao){
         return heroiRepository.findAllBySituacao(situacao);
     }
 
-    @Cacheable(cacheNames = CACHE_COLLECTION_HEROIS, key = CACHE_ROOT_METHOD_NAME, unless = CACHE_ONLY_IF_RESULTS)
+    @Cacheable(cacheNames = CACHE_HEROIS, key = CACHE_ROOT_METHOD_NAME)
     @Transactional(readOnly = true)
     public List<Heroi> findAll(){
         return heroiRepository.findAll();

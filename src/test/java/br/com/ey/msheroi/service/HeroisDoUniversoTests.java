@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import static br.com.ey.msheroi.utils.ConstantesTests.newHeroInstance;
 @ActiveProfiles("dsv")
 @Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class HeroisDoUniversoTests {
 
     @Autowired
@@ -49,6 +51,6 @@ public class HeroisDoUniversoTests {
         log.info("... Herois Do Universo EY_COMICS ... {}", herois);
 
         log.info("... Assertions Buscando Herois do Universo ...");
-        Assertions.assertTrue(herois.size() >= heroisASeremCriados);
+        Assertions.assertTrue(herois.size() == heroisASeremCriados);
     }
 }
