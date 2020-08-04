@@ -1,6 +1,6 @@
 package br.com.ey.msheroi.repository;
 
-import br.com.ey.msheroi.vo.Usuario;
+import br.com.ey.msheroi.common.vo.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package br.com.ey.msheroi.config.security.controller;
 
 import br.com.ey.msheroi.config.security.service.AutenticacaoService;
-import br.com.ey.msheroi.vo.Login;
+import br.com.ey.msheroi.common.vo.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

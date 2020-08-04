@@ -11,6 +11,6 @@ public class SqlserverDefinitions {
     public static final String BEAN_NAME_ENTITY_MANAGER_FACTORY = "entityManagerFactorySqlserver";
 
     public static final String REPO_PACKAGES = "br.com.ey.msheroi.repository";
-    public static final String ENTITY_PACKAGES = "br.com.ey.msheroi.vo";
+    public static final String ENTITY_PACKAGES = "br.com.ey.msheroi.common.vo";
 
 }

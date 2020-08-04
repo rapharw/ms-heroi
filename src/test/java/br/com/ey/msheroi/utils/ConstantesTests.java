@@ -1,10 +1,10 @@
 package br.com.ey.msheroi.utils;
 
-import br.com.ey.msheroi.enums.Situacao;
-import br.com.ey.msheroi.enums.TipoUniversoEnum;
-import br.com.ey.msheroi.vo.Heroi;
-import br.com.ey.msheroi.vo.Poder;
-import br.com.ey.msheroi.vo.Universo;
+import br.com.ey.msheroi.common.enums.Situacao;
+import br.com.ey.msheroi.common.enums.TipoUniversoEnum;
+import br.com.ey.msheroi.common.vo.Heroi;
+import br.com.ey.msheroi.common.vo.Poder;
+import br.com.ey.msheroi.common.vo.Universo;
 
 public class ConstantesTests {
 

@@ -1,8 +1,9 @@
 package br.com.ey.msheroi.service;
 
-import br.com.ey.msheroi.facade.HeroiFacade;
-import br.com.ey.msheroi.vo.Heroi;
-import br.com.ey.msheroi.vo.Universo;
+import br.com.ey.msheroi.model.heroi.facade.HeroiFacade;
+import br.com.ey.msheroi.common.vo.Heroi;
+import br.com.ey.msheroi.common.vo.Universo;
+import br.com.ey.msheroi.model.heroi.service.HeroisDoUniversoService;
 import com.google.gson.GsonBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;

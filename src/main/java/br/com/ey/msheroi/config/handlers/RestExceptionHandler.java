@@ -1,7 +1,7 @@
 package br.com.ey.msheroi.config.handlers;
 
-import br.com.ey.msheroi.exception.DefaultErrorException;
-import br.com.ey.msheroi.exception.vo.RestExceptionVO;
+import br.com.ey.msheroi.common.exception.DefaultErrorException;
+import br.com.ey.msheroi.common.exception.vo.RestExceptionVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

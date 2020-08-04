@@ -1,8 +1,8 @@
 package br.com.ey.msheroi.repository;
 
-import br.com.ey.msheroi.enums.Situacao;
-import br.com.ey.msheroi.vo.Heroi;
-import br.com.ey.msheroi.vo.Universo;
+import br.com.ey.msheroi.common.enums.Situacao;
+import br.com.ey.msheroi.common.vo.Heroi;
+import br.com.ey.msheroi.common.vo.Universo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,7 +3,7 @@ package br.com.ey.msheroi.config.security.service;
 import br.com.ey.msheroi.config.security.vo.UserPrincipal;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import br.com.ey.msheroi.vo.Usuario;
+import br.com.ey.msheroi.common.vo.Usuario;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;

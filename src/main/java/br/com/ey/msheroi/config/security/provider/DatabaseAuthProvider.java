@@ -2,8 +2,8 @@ package br.com.ey.msheroi.config.security.provider;
 
 import br.com.ey.msheroi.repository.LoginRepository;
 import br.com.ey.msheroi.repository.UsuarioRepository;
-import br.com.ey.msheroi.vo.Login;
-import br.com.ey.msheroi.vo.Usuario;
+import br.com.ey.msheroi.common.vo.Login;
+import br.com.ey.msheroi.common.vo.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

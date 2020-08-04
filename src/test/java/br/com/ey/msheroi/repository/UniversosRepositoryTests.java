@@ -1,6 +1,6 @@
 package br.com.ey.msheroi.repository;
 
-import br.com.ey.msheroi.vo.Universo;
+import br.com.ey.msheroi.common.vo.Universo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

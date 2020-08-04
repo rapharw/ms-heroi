@@ -36,10 +36,24 @@ docker run -d -p 1433:1433 --name heroi-sqlserver -e "ACCEPT_EULA=Y" -e "SA_PASS
 
 
 
-# Postman Collection
-https://www.getpostman.com/collections/10313f184d9b872d5509
+# API
 
+## Postman Collection
+https://www.getpostman.com/collections/10313f184d9b872d5509
 
 *OBS:* Ao importar a Collection, as url's estarão utilizando a url http://localhost:8086, condinzentes ao profile de DSV.
 
 *OBS2:* Para testar o profile de HML, altere-o nas config's de inicialização do springboot e altere a não esqueça de mudar as config's no Postman, para apontar para a nova url. 
+
+
+## CORS
+Nos arquivos application-{env}.yml, existe a propriedade *allowed.origin*. Ela define quais as origens são permitidas para se fazer um request ao backend.
+
+
+## Rotas
+
+* /api/** <br>
+Rota com a ROLE_COMUM. Todos os usuários contendo o perfil ROLE_COMUM acessam esta rota.
+
+* /admin/** <br>
+Rota com a ROLE_ADMIN. Apenas usuários contendo o perfil ROLE_ADMIN acessam esta rota.

@@ -1,17 +1,14 @@
 package br.com.ey.msheroi.repository;
 
-import br.com.ey.msheroi.enums.Situacao;
-import br.com.ey.msheroi.vo.Heroi;
-import br.com.ey.msheroi.vo.Poder;
-import br.com.ey.msheroi.vo.Universo;
+import br.com.ey.msheroi.common.enums.Situacao;
+import br.com.ey.msheroi.common.vo.Heroi;
+import br.com.ey.msheroi.common.vo.Poder;
+import br.com.ey.msheroi.common.vo.Universo;
 import com.google.gson.GsonBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.support.NoOpCacheManager;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;

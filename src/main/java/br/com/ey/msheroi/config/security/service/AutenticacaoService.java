@@ -1,9 +1,9 @@
 package br.com.ey.msheroi.config.security.service;
 
 import br.com.ey.msheroi.config.security.provider.DatabaseAuthProvider;
-import br.com.ey.msheroi.exception.autenticacao.UsuarioNaoAutenticadoException;
-import br.com.ey.msheroi.vo.Login;
-import br.com.ey.msheroi.vo.Usuario;
+import br.com.ey.msheroi.common.exception.autenticacao.UsuarioNaoAutenticadoException;
+import br.com.ey.msheroi.common.vo.Login;
+import br.com.ey.msheroi.common.vo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

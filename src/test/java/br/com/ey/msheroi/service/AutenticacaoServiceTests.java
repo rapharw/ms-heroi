@@ -3,16 +3,13 @@ package br.com.ey.msheroi.service;
 import br.com.ey.msheroi.config.security.enums.PerfilUsuarioEnum;
 import br.com.ey.msheroi.config.security.service.TokenService;
 import br.com.ey.msheroi.config.security.vo.UserPrincipal;
-import br.com.ey.msheroi.vo.Login;
-import br.com.ey.msheroi.vo.Usuario;
+import br.com.ey.msheroi.common.vo.Login;
+import br.com.ey.msheroi.common.vo.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
-
-import java.util.Optional;
 
 import static br.com.ey.msheroi.utils.ConstantesTests.*;
 
