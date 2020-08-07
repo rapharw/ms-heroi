@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: true
+    properties:
+      hibernate:
+      database-platform: org.hibernate.dialect.SQLServerDialect
+
+  datasource-sqlserver:
+    hikari:
+      connection-timeout: 60000
+      idle-timeout: 120000
+      max-lifetime: 600000
+      maximum-pool-size: 20
+      minimum-idle: 0
+      read-only: false
+      connection-test-query: select 1

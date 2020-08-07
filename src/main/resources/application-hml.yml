@@ -1,0 +1,21 @@
+allowed:
+  origin: ${URL_DOMAIN}
+
+logging:
+  level:
+    org:
+      springframework:
+        web: error
+      hibernate:
+        SQL: ERROR
+        type:
+          descriptor:
+            sql:
+              BasicBinder: error
+
+spring:
+  datasource-sqlserver:
+    url: ${URL_DATABASE}
+    username: ${USERNAME_DATABASE}
+    password: ${PASSWORD_DATABASE}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
