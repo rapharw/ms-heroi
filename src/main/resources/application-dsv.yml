@@ -4,6 +4,7 @@ server:
 allowed:
   origin: http://localhost:8080, http://localhost:4200
 
+
 logging:
   level:
     org:
@@ -28,6 +29,8 @@ spring:
         show_sql: true
         format_sql: true
         type: trace
+    hibernate:
+      ddl-auto: none
 
   datasource-sqlserver:
     url: jdbc:h2:mem:database-sqlserver;MODE=MSSQLServer;INIT=RUNSCRIPT FROM 'classpath:sqlserver_schema.sql';

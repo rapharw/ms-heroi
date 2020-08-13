@@ -31,6 +31,7 @@ public class HeroiFacade {
     public Heroi criaHeroi(Heroi heroi){
         log.info("... Criando um Heroi ...");
         try {
+            heroi.setId(null);
             heroi.setSituacao(Situacao.ATIVO);
             return heroiService.saveOrUpdate(heroi);
         }

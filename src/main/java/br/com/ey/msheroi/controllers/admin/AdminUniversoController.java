@@ -1,8 +1,8 @@
 package br.com.ey.msheroi.controllers.admin;
 
+import br.com.ey.msheroi.common.request.UniversoRequest;
 import br.com.ey.msheroi.controllers.CommonController;
 import br.com.ey.msheroi.model.universo.facade.UniversoFacade;
-import br.com.ey.msheroi.common.vo.Universo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class AdminUniversoController extends CommonController {
     protected UniversoFacade universoFacade;
 
     @PutMapping("/{id}")
-    public ResponseEntity<Long> atualizaUniverso(@PathVariable(value = "id") Integer id, @RequestBody Universo universo){
-        return ok(universoFacade.alteraUniverso(id, universo).getId(), ATUALIZACAO_OK);
+    public ResponseEntity<Long> atualizaUniverso(@PathVariable(value = "id") Integer id, @RequestBody UniversoRequest universoRequest){
+        return ok(universoFacade.alteraUniverso(id, universoRequest.getUniversoInstance()).getId(), ATUALIZACAO_OK);
     }
 }
