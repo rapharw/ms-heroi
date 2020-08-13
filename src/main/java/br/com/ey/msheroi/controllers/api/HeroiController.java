@@ -1,5 +1,6 @@
 package br.com.ey.msheroi.controllers.api;
 
+import br.com.ey.msheroi.common.request.HeroiRequest;
 import br.com.ey.msheroi.controllers.CommonController;
 import br.com.ey.msheroi.common.enums.Situacao;
 import br.com.ey.msheroi.model.heroi.facade.HeroiFacade;
@@ -23,13 +24,13 @@ public class HeroiController extends CommonController {
     protected HeroiFacade heroiFacade;
 
     @PostMapping
-    public ResponseEntity<Long> cadastraHeroi(@RequestBody Heroi heroi) {
-        return ok(heroiFacade.criaHeroi(heroi).getId(), CADASTRO_OK);
+    public ResponseEntity<Long> cadastraHeroi(@RequestBody HeroiRequest heroiRequest) {
+        return ok(heroiFacade.criaHeroi(heroiRequest.getHeroiInstance()).getId(), CADASTRO_OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Long> atualizaHeroi(@PathVariable(value = "id") Long id, @RequestBody Heroi heroi){
-        return ok(heroiFacade.alteraHeroi(id, heroi).getId(), ATUALIZACAO_OK);
+    public ResponseEntity<Long> atualizaHeroi(@PathVariable(value = "id") Long id, @RequestBody HeroiRequest heroiRequest){
+        return ok(heroiFacade.alteraHeroi(id, heroiRequest.getHeroiInstance()).getId(), ATUALIZACAO_OK);
     }
 
     @GetMapping("/{id}")

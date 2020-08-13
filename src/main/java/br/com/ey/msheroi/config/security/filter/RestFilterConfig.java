@@ -32,6 +32,7 @@ public class RestFilterConfig {
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
+        config.addAllowedMethod("DELETE");
         config.addAllowedMethod("OPTIONS");
 
         return config;

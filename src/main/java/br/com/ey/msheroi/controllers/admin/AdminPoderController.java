@@ -1,5 +1,6 @@
 package br.com.ey.msheroi.controllers.admin;
 
+import br.com.ey.msheroi.common.request.PoderRequest;
 import br.com.ey.msheroi.controllers.CommonController;
 import br.com.ey.msheroi.model.poder.facade.PoderFacade;
 import br.com.ey.msheroi.common.vo.Poder;
@@ -20,13 +21,13 @@ public class AdminPoderController extends CommonController {
     protected PoderFacade poderFacade;
 
     @PostMapping
-    public ResponseEntity<Long> cadastraPoder(@RequestBody Poder poder) {
-        return ok(poderFacade.criaPoder(poder).getId(), CADASTRO_OK);
+    public ResponseEntity<Long> cadastraPoder(@RequestBody PoderRequest poderRequest) {
+        return ok(poderFacade.criaPoder(poderRequest.getPoderInstance()).getId(), CADASTRO_OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Long> atualizaPoder(@PathVariable(value = "id") Integer id, @RequestBody Poder poder){
-        return ok(poderFacade.alteraPoder(id, poder).getId(), ATUALIZACAO_OK);
+    public ResponseEntity<Long> atualizaPoder(@PathVariable(value = "id") Integer id, @RequestBody PoderRequest poderRequest){
+        return ok(poderFacade.alteraPoder(id, poderRequest.getPoderInstance()).getId(), ATUALIZACAO_OK);
     }
 
     @DeleteMapping("/{id}")

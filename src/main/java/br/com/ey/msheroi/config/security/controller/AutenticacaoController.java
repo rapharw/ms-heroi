@@ -1,7 +1,8 @@
 package br.com.ey.msheroi.config.security.controller;
 
+import br.com.ey.msheroi.common.request.LoginRequest;
+import br.com.ey.msheroi.common.vo.Token;
 import br.com.ey.msheroi.config.security.service.AutenticacaoService;
-import br.com.ey.msheroi.common.vo.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,12 +20,18 @@ public class AutenticacaoController {
     private AutenticacaoService autenticacaoService;
 
     @PostMapping
-    public ResponseEntity login(@RequestBody Login login){
+    public ResponseEntity<Token> login(@RequestBody LoginRequest loginRequest){
 
-        String token = autenticacaoService.realizaAutenticacao(login);
+        String tokenAuth = autenticacaoService.realizaAutenticacao(loginRequest.getLoginInstance());
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("token", token);
-        return new ResponseEntity<>("SUCESSO", headers, HttpStatus.OK);
+        headers.add("token", tokenAuth);
+
+
+
+        return new ResponseEntity<>(Token.builder()
+                                            .value(tokenAuth)
+                                        .build(), headers, HttpStatus.CREATED);
+
     }
 }

@@ -45,6 +45,14 @@ public class Heroi implements Serializable {
     private Set<Poder> poderes;
 
     @Builder
+    public Heroi(String nome, Universo universo, Situacao situacao, Set<Poder> poderes){
+        this.nome = nome;
+        this.universo = universo;
+        this.situacao = situacao;
+        this.poderes = poderes;
+    }
+
+    @Builder
     public Heroi(String nome, Universo universo, Situacao situacao){
         this.nome = nome;
         this.universo = universo;

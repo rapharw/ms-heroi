@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                         .antMatchers(HttpMethod.OPTIONS).permitAll()
                         .antMatchers("/auth/**", "/h2-console/**").permitAll()
-                        .antMatchers("/api/**").hasAuthority(PerfilUsuarioEnum.ROLE_COMUM.name())
+                        .antMatchers("/api/**", "/token/**", "/usuario/**").hasAuthority(PerfilUsuarioEnum.ROLE_COMUM.name())
                         .antMatchers("/admin/**").hasAuthority(PerfilUsuarioEnum.ROLE_ADM.name()) //rotas para criar os dominios (PODER / UNIVERSO)
 
                     .anyRequest().authenticated()

@@ -28,7 +28,7 @@ public class HeroiService {
         return heroiRepository.saveAndFlush(heroi);
     }
 
-    @Cacheable(cacheNames = CACHE_HEROIS, key = CACHE_ID)
+    @CacheEvict(cacheNames = {CACHE_HEROIS}, allEntries = true)
     @Transactional(readOnly = true)
     public Heroi findById(Long id) {
         Optional<Heroi> byId = heroiRepository.findById(id);

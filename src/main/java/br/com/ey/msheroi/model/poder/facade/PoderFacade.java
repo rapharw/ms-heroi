@@ -30,6 +30,7 @@ public class PoderFacade {
     public Poder criaPoder(Poder poder){
         log.info("... Criando um Poder ...");
         try {
+            poder.setId(null);
             return poderService.saveOrUpdate(poder);
         }
         catch (Exception e){
